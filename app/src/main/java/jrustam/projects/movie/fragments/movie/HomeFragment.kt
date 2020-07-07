@@ -30,7 +30,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
-
+    
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.clear()
         inflater.inflate(R.menu.movie_menu, menu)
@@ -56,7 +56,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             }
             R.id.upComing -> {
                 getUpComingMovies()
-                Toast.makeText(context, "Up Rated", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Up Coming", Toast.LENGTH_LONG).show()
             }
          }
 
@@ -80,8 +80,8 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 val moviesResult= response.body()!!.results
-                recyclerView.adapter =
-                    HomeRecycler(moviesResult)
+                recyclerView.adapter = HomeRecycler(moviesResult)
+                recyclerView.setHasFixedSize(true)
             }
 
             override fun onFailure(call: Call<Movie>, t: Throwable) {
@@ -108,7 +108,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 val moviesResult= response.body()!!.results
                 recyclerView.adapter = HomeRecycler(moviesResult)
-                recyclerView.adapter!!.notifyDataSetChanged()
+                recyclerView.setHasFixedSize(true)
             }
 
             override fun onFailure(call: Call<Movie>, t: Throwable) {
@@ -134,10 +134,8 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 val moviesResult= response.body()!!.results
-                recyclerView.adapter =
-                    HomeRecycler(
-                        moviesResult
-                    )
+                recyclerView.adapter = HomeRecycler(moviesResult)
+                recyclerView.setHasFixedSize(true)
             }
 
             override fun onFailure(call: Call<Movie>, t: Throwable) {

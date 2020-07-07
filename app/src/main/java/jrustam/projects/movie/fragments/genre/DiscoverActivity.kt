@@ -63,6 +63,7 @@ class DiscoverActivity : YouTubeBaseActivity() {
 
             override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, p1: YouTubePlayer?, p2: Boolean) {
                 p1?.loadVideo(key)
+                p1!!.setFullscreen(true)
             }
 
             override fun onInitializationFailure(p0: YouTubePlayer.Provider?, p1: YouTubeInitializationResult?) {

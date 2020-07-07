@@ -51,7 +51,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
             override fun onResponse(call: Call<Discover>, response: Response<Discover>) {
                 val result = response.body()!!.results
                 recyclerView.adapter = DiscoverRecycler(result)
-                recyclerView.adapter!!.notifyDataSetChanged()
+                recyclerView.setHasFixedSize(true)
             }
 
             override fun onFailure(call: Call<Discover>, t: Throwable) {

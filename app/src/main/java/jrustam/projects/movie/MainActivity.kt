@@ -10,8 +10,6 @@ import jrustam.projects.movie.fragments.movie.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
-//    private var fragment: Fragment? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.show(supportFragmentManager, "AlertDialogFragment")
             }
         }
-//        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment!!).commit()
+
         true
     }
 
